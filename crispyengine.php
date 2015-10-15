@@ -1,32 +1,21 @@
     
 <?php
 
-//insert code here
+//welcome to the crispyengine
+//this is where we store the functions that run EC's webcomic trawling features
+//please wear a hard hat
 
-
-echo "<link rel='stylesheet' type='text/css' href='style.css'> ";
-echo "<title> extracrispy </title>";
-echo "<head id='header'> welcome to extracrispy </head>";
-
+//this crawls the comic Not Invented Here
 function NIH() {
 $NIH = file_get_contents("http://notinventedhe.re");
 $b = "<br/>";
 $Nstart = strpos($NIH, '<div id="comic-content">') ;
 echo $b;
-
 $Nfinish = strpos($NIH, '><div id="comic-nav">') ;
-
-
-
-
 echo substr($NIH, 1507, 228);
 }
-//to solve date problem (come back to this) create a conditional with an else that changes it to 1507 229
-//date problem is that if the day value has 2 digits, the substr gets off
-//haven't actually confirmed whether or not that will happen tho
-?>
-<?php
-echo $b;
+
+//this crawls the comic xkcd
 function xkcd() {
 $xkcd = file_get_contents("http://www.xkcd.com");
 
@@ -40,6 +29,6 @@ echo $b;
 echo substr($xkcd, $xstart, $xcomic);
 
 }
-xkcd();
+
 ?>
 
