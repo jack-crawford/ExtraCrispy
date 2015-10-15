@@ -30,5 +30,16 @@ echo substr($xkcd, $xstart, $xcomic);
 
 }
 
+
+
+
+function localcontent(){
+    //enginelog: date formatting cannot have slashes for some reason when calling the img file
+    //resolved by changing date formatting to dots, ie m.d.y.jpg
+    $date = ''.date(m).".".date(d).".".date(y).'';
+    echo "<img src='$date.jpg'>";
+    echo "<img src='test.jpg'>";    
+}
+
 ?>
 

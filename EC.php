@@ -42,9 +42,11 @@ if ($weekday === "Thu") {
 }
 
 
+
 //content publishing
 comicreader();
-
+echo "</br>";
+localcontent();
 
 
 echo '</body>';
