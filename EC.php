@@ -10,7 +10,7 @@ echo '<body id="body2">';
 
 //include crispyengine functions
 include 'crispyengine.php';
-
+date_default_timezone_set('America/Chicago');
 
 //content creation
 function comicreader() {
@@ -45,6 +45,8 @@ if ($weekday === "Thu") {
 
 //content publishing
 comicreader();
+echo "</br>";
+echo "</h1 style='text-align: center'> Local Content </h2>";
 echo "</br>";
 localcontent();
 
