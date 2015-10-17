@@ -50,8 +50,7 @@ function localcontent(){
     </body></html>");
     //goal is to create buttons that take you to previous and next days' content by altering
     //$date and giving it to links
-    //enginelog: $previousday is successful, should be included from now on.
-    //I should know if it works in the archive by sunday
+    //enginelog: $previousday is successful, on homepage
     $currentday = (int)substr($date, 3,2);
     $previousday = $currentday - 1;
     $previousdate = ''.substr($date, 0,2).'.'.$previousday.'.'.substr($date, -2);
@@ -61,7 +60,8 @@ function localcontent(){
     $nextdate = ''.substr($date, 0,2).'.'.$nextday.'.'.substr($date, -2);
     echo "     ";
     echo "<a href='$nextdate.html' class='button'>Next</a>";
-    //next day is successful on the home page, same timeframe as $previous for archive
+    //next day is successful on the home page
+    //
 }
 
 ?>
