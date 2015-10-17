@@ -35,21 +35,23 @@ date_default_timezone_set('America/Chicago');
 
 function localcontent(){
     //enginelog: date formatting cannot have slashes for some reason when calling the img file
-    //resolved by changing date formatting to dots, ie m.d.y.jpg
+    //resolved by changing date formatting to dots, ie m.d.y.jpg and m.d.y.html
     $date = ''.date(m).".".date(d).".".date(y).'';
-    //$date is the date
+    //$date is the date, duh
     //this shows the image on the homepage:
     echo "<img src='$date.jpg'>";
     //$newpage is the new html page
 
     $newpage = fopen("$date.html", w);
     fwrite($newpage, "<html><link rel='stylesheet' href='ec.css'><div id='body1'>
-    <h1 style='text-align: center'> welcome to extracrispy </h1> <title>extracrispy</title>
+    <h1 style='text-align: center'> archived content for $date </h1> <title>extracrispy</title>
     </br></div><body id='body2'><img src='$date.jpg'></body></html>");
-
-}
-
-function nav(){
-
+    //goal is to create buttons that take you to previous and next days' content by altering
+    //$date and giving it to links
+    $currentday = (int)substr($date, 3,2);
+    echo $currentday;
+    $previousday = $currentday - 1;
+    $previousdate = ''.substr($date, 0,2).'.'.$previousday.'.'.substr($date, -2);
+    echo "<a href='$previousdate.html' class='button'>Previous </a>";
 }
 ?>

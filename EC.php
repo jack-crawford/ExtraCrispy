@@ -51,6 +51,9 @@ if ($weekday === "Thu") {
 comicreader();
 echo "</br>";
 localcontent();
+echo "</br>";
+
+nav();
 
 
 echo '</body>';
