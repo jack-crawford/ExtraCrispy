@@ -81,17 +81,17 @@ function localcontent(){
     $nextdate = ''.substr($date, 0,2).'.'.$nextday.'.'.substr($date, -2);
     echo "     ";
     //these are the buttons
-    $previousbutton = "<h2><a href='$previousdate.html' class='button'>Previous</a></h2>";
-    $nextbutton = "<h2><a href='$nextdate.html' class='button'> Next</a></h2>";
-    $homebutton = "<h2><a href='EC.php' class='button'> Home </a></h2>";
+    $previousbutton = "<a href='$previousdate.html' class='button'>Previous</a>";
+    $nextbutton = "<a href='$nextdate.html' class='button'>Next</a>";
+    $homebutton = "<a href='EC.php' class='button'>Home</a>";
     //on the homepage only the previousbutton needs to be shown
     echo $previousbutton;
-    
+
     //$newpage and fwrite are the generation of archived pages
     $newpage = fopen("$date.html", w);
     fwrite($newpage, "<html><link rel='stylesheet' href='ec.css'><div id='body1'>
     <h1 style='text-align: center'> archived content for $date </h1> <title>extracrispy</title>
-    </br></div><body id='body2'><img src='$date.jpg'></br> $previousbutton $homebutton $nextbutton
+    </br></div><body id='body2'><img src='$date.jpg'></br> $formattedtitlestring </br> $infostring </br> $previousbutton $homebutton $nextbutton </br>
     </body></html>");
 }
 
