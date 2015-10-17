@@ -7,7 +7,11 @@ echo "<title> extracrispy </title>";
 echo "</br>";
 echo '</div>';
 echo '<body id="body2">';
+
 date_default_timezone_set('America/Chicago');
+
+
+
 //include crispyengine functions
 include 'crispyengine.php';
 
@@ -50,5 +54,5 @@ localcontent();
 
 
 echo '</body>';
-  
-?> 
+
+?>

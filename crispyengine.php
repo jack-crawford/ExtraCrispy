@@ -1,4 +1,3 @@
-    
 <?php
 
 //welcome to the crispyengine
@@ -30,6 +29,7 @@ echo substr($xkcd, $xstart, $xcomic);
 
 }
 
+date_default_timezone_set('America/Chicago');
 
 
 
@@ -37,8 +37,19 @@ function localcontent(){
     //enginelog: date formatting cannot have slashes for some reason when calling the img file
     //resolved by changing date formatting to dots, ie m.d.y.jpg
     $date = ''.date(m).".".date(d).".".date(y).'';
-    echo "<img src='$date.jpg'>";    
+    //$date is the date
+    //this shows the image on the homepage:
+    echo "<img src='$date.jpg'>";
+    //$newpage is the new html page
+
+    $newpage = fopen("$date.html", w);
+    fwrite($newpage, "<html><link rel='stylesheet' href='ec.css'><div id='body1'>
+    <h1 style='text-align: center'> welcome to extracrispy </h1> <title>extracrispy</title>
+    </br></div><body id='body2'><img src='$date.jpg'></body></html>");
+
 }
 
-?>
+function nav(){
 
+}
+?>
