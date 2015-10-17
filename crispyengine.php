@@ -43,6 +43,29 @@ function localcontent(){
     //enginelog: $newpage did not have a definition for both $previousdate and $nextdate, so I moved it below the nav section
     //and it found those definitions, which seem to remain static on the archived pages
 
+    echo "</br>";
+    //This section takes a text file that accompanies the image file and parses it for the title and info (ie a blog post or description of the image)
+    //interesting note, since this text is being echoed into a php file it can contain html formatting for font size and color and such
+      $wholeinfo = file_get_contents("$date.txt");
+      //Title parser
+      $titlestart = strpos($wholeinfo, "Title:") + 6;
+      $titlefinish = strpos($wholeinfo, "Date") ;
+      $titlelength = $titlefinish - $titlestart;
+      $titlestring = substr($wholeinfo, $titlestart, $titlelength);
+      $formattedtitlestring = "<h1> $titlestring </h1>";
+      echo $formattedtitlestring;
+      echo "</br>";
+      //Info parser
+      $infostart = strpos($wholeinfo, "Info:") + 5;
+      $infofinish = strpos($wholeinfo, "END") - 3;
+      $infolength = $infofinish - $infostart;
+      $infostring = substr($wholeinfo, $infostart, $infolength);
+      echo $infostring;
+      echo "</br>";
+
+
+
+
     //NAV
     //goal is to create buttons that take you to previous and next days' content by altering
     //$date and giving it to links
@@ -51,20 +74,24 @@ function localcontent(){
     $previousday = $currentday - 1;
     $previousdate = ''.substr($date, 0,2).'.'.$previousday.'.'.substr($date, -2);
     echo "</br>";
-    echo "<a href='$previousdate.html' class='button'>Previous</a>";
+
+
     //now let's try $nextday
     $nextday = $currentday + 1;
     $nextdate = ''.substr($date, 0,2).'.'.$nextday.'.'.substr($date, -2);
     echo "     ";
-    //enginelog: next day is successful on the home page (10/17 12:15 AM) and archived pages (10/17 11:15AM)
-    //enginelog: removed next day from home page, because the homepage shows the latest post and doesn't need a next button
+    //these are the buttons
+    $previousbutton = "<h2><a href='$previousdate.html' class='button'>Previous</a></h2>";
+    $nextbutton = "<h2><a href='$nextdate.html' class='button'> Next</a></h2>";
+    $homebutton = "<h2><a href='EC.php' class='button'> Home </a></h2>";
+    //on the homepage only the previousbutton needs to be shown
+    echo $previousbutton;
     
     //$newpage and fwrite are the generation of archived pages
     $newpage = fopen("$date.html", w);
     fwrite($newpage, "<html><link rel='stylesheet' href='ec.css'><div id='body1'>
     <h1 style='text-align: center'> archived content for $date </h1> <title>extracrispy</title>
-    </br></div><body id='body2'><img src='$date.jpg'></br><a href='$previousdate.html' class='button'> Previous </a>  <a href='EC.php' class='button'> Home </a>
-    <a href='$nextdate.html' class='button'> Next</a>
+    </br></div><body id='body2'><img src='$date.jpg'></br> $previousbutton $homebutton $nextbutton
     </body></html>");
 }
 
