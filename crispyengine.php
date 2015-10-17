@@ -45,13 +45,23 @@ function localcontent(){
     $newpage = fopen("$date.html", w);
     fwrite($newpage, "<html><link rel='stylesheet' href='ec.css'><div id='body1'>
     <h1 style='text-align: center'> archived content for $date </h1> <title>extracrispy</title>
-    </br></div><body id='body2'><img src='$date.jpg'></body></html>");
+    </br></div><body id='body2'><img src='$date.jpg'></br><a href='$previousdate.html' class='button'>Previous </a>
+    <a href='$nextdate.html' class='button'>Next</a>
+    </body></html>");
     //goal is to create buttons that take you to previous and next days' content by altering
     //$date and giving it to links
+    //enginelog: $previousday is successful, should be included from now on.
+    //I should know if it works in the archive by sunday
     $currentday = (int)substr($date, 3,2);
-    echo $currentday;
     $previousday = $currentday - 1;
     $previousdate = ''.substr($date, 0,2).'.'.$previousday.'.'.substr($date, -2);
-    echo "<a href='$previousdate.html' class='button'>Previous </a>";
+    echo "<a href='$previousdate.html' class='button'>Previous</a>";
+    //now let's try $nextday
+    $nextday = $currentday + 1;
+    $nextdate = ''.substr($date, 0,2).'.'.$nextday.'.'.substr($date, -2);
+    echo "     ";
+    echo "<a href='$nextdate.html' class='button'>Next</a>";
+    //next day is successful on the home page, same timeframe as $previous for archive
 }
+
 ?>
