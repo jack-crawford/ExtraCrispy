@@ -40,28 +40,32 @@ function localcontent(){
     //$date is the date, duh
     //this shows the image on the homepage:
     echo "<img src='$date.jpg'>";
-    //$newpage is the new html page
+    //enginelog: $newpage did not have a definition for both $previousdate and $nextdate, so I moved it below the nav section
+    //and it found those definitions, which seem to remain static on the archived pages
 
-    $newpage = fopen("$date.html", w);
-    fwrite($newpage, "<html><link rel='stylesheet' href='ec.css'><div id='body1'>
-    <h1 style='text-align: center'> archived content for $date </h1> <title>extracrispy</title>
-    </br></div><body id='body2'><img src='$date.jpg'></br><a href='$previousdate.html' class='button'>Previous </a>
-    <a href='$nextdate.html' class='button'>Next</a>
-    </body></html>");
+    //NAV
     //goal is to create buttons that take you to previous and next days' content by altering
     //$date and giving it to links
-    //enginelog: $previousday is successful, on homepage
+    //enginelog: $previousday is successful on newly created archive pages as well as the home page
     $currentday = (int)substr($date, 3,2);
     $previousday = $currentday - 1;
     $previousdate = ''.substr($date, 0,2).'.'.$previousday.'.'.substr($date, -2);
+    echo "</br>";
     echo "<a href='$previousdate.html' class='button'>Previous</a>";
     //now let's try $nextday
     $nextday = $currentday + 1;
     $nextdate = ''.substr($date, 0,2).'.'.$nextday.'.'.substr($date, -2);
     echo "     ";
-    echo "<a href='$nextdate.html' class='button'>Next</a>";
-    //next day is successful on the home page
-    //
+    //enginelog: next day is successful on the home page (10/17 12:15 AM) and archived pages (10/17 11:15AM)
+    //enginelog: removed next day from home page, because the homepage shows the latest post and doesn't need a next button
+    
+    //$newpage and fwrite are the generation of archived pages
+    $newpage = fopen("$date.html", w);
+    fwrite($newpage, "<html><link rel='stylesheet' href='ec.css'><div id='body1'>
+    <h1 style='text-align: center'> archived content for $date </h1> <title>extracrispy</title>
+    </br></div><body id='body2'><img src='$date.jpg'></br><a href='$previousdate.html' class='button'> Previous </a>  <a href='EC.php' class='button'> Home </a>
+    <a href='$nextdate.html' class='button'> Next</a>
+    </body></html>");
 }
 
 ?>
