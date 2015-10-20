@@ -55,5 +55,9 @@ echo "</br>";
 
 
 echo '</body>';
+<<<<<<< HEAD
 
+=======
+$resultsofreaddir = readdir(getcwd());
+>>>>>>> origin/master
 ?>

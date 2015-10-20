@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 //This is the experimental version of the crispyengine
 //be cautious, fools dare not tread here
 
@@ -8,6 +9,9 @@ function idsystem(){
   echo getcwd();
 
 }
+=======
+
+>>>>>>> origin/master
 
 
 function localcontent(){
@@ -43,7 +47,42 @@ function localcontent(){
 
 
 
+<<<<<<< HEAD
 
+=======
+    //NAV
+    //goal is to create buttons that take you to previous and next days' content by altering
+    //$date and giving it to links
+    //enginelog: $previousday is successful on newly created archive pages as well as the home page
+    $idnumber = 
+    $currentday = (int)substr($date, 3,2);
+    $previousday = $currentday - 1;
+    $previousdate = ''.substr($date, 0,2).'.'.$previousday.'.'.substr($date, -2);
+    echo "</br>";
+
+
+    //now let's try $nextday
+    $nextday = $currentday + 1;
+    $nextdate = ''.substr($date, 0,2).'.'.$nextday.'.'.substr($date, -2);
+    echo "     ";
+    //these are the buttons
+    $previousbutton = "<a href='$previousdate.html' class='button'>Previous</a>";
+    $nextbutton = "<a href='$nextdate.html' class='button'>Next</a>";
+    $homebutton = "<a href='EC.php' class='button'>Home</a>";
+    //on the homepage only the previousbutton needs to be shown
+    echo $previousbutton;
+
+    //$newpage and fwrite are the generation of archived pages
+    $newpage = fopen("$date.html", w);
+    fwrite($newpage, "<html><link rel='stylesheet' href='ec.css'><div id='body1'>
+    <h1 style='text-align: center'> archived content for $date </h1> <title>extracrispy</title>
+    </br></div><body id='body2'><img src='$date.jpg'></br> $formattedtitlestring </br> $infostring </br> $previousbutton $homebutton $nextbutton </br>
+    </body></html>");
+    fclose("$date.html");
+    //new bug - previous post glitches when the previous post wasn't the day before
+    //solution: posts are numbered by post and not by date in nav system
+    //$postid = //number of posts in folder?
+>>>>>>> origin/master
 
 
 
