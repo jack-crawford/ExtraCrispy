@@ -11,10 +11,10 @@ echo '<body id="body2">';
 date_default_timezone_set('America/Chicago');
 
 
-
+echo "</br>";
 //include crispyengine functions
-include 'crispyengine.php';
-include 'othercomics.php';
+include 'Xengine.php';
+
 
 //content creation
 function comicreader() {
@@ -52,8 +52,8 @@ comicreader();
 echo "</br>";
 localcontent();
 echo "</br>";
-
-
+idsystem();
+echo getcwd();
 echo '</body>';
 
 ?>
