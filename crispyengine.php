@@ -70,6 +70,7 @@ function localcontent(){
     //goal is to create buttons that take you to previous and next days' content by altering
     //$date and giving it to links
     //enginelog: $previousday is successful on newly created archive pages as well as the home page
+
     $currentday = (int)substr($date, 3,2);
     $previousday = $currentday - 1;
     $previousdate = ''.substr($date, 0,2).'.'.$previousday.'.'.substr($date, -2);
@@ -93,6 +94,14 @@ function localcontent(){
     <h1 style='text-align: center'> archived content for $date </h1> <title>extracrispy</title>
     </br></div><body id='body2'><img src='$date.jpg'></br> $formattedtitlestring </br> $infostring </br> $previousbutton $homebutton $nextbutton </br>
     </body></html>");
+    fclose("$date.html");
+    //new bug - previous post glitches when the previous post wasn't the day before
+    //solution: posts are numbered by post and not by date in nav system
+    //$postid = //number of posts in folder?
+  
+
+
+
 }
 
 ?>
