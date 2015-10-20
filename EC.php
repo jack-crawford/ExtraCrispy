@@ -55,5 +55,5 @@ echo "</br>";
 
 
 echo '</body>';
-
+$resultsofreaddir = readdir(getcwd());
 ?>
