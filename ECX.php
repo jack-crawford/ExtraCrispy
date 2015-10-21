@@ -3,7 +3,7 @@
 echo '<link rel="stylesheet" href="ec.css">';
 echo '<div id="body1">';
 echo '<h1 style="text-align: center"> welcome to extracrispy </h1>';
-echo "<title> extracrispy </title>";
+echo "<title> extracrispy X</title>";
 echo "</br>";
 echo '</div>';
 echo '<body id="body2">';
@@ -12,7 +12,7 @@ date_default_timezone_set('America/Chicago');
 
 
 echo "</br>";
-//include crispyengine functions
+//include Xengine functions
 include 'Xengine.php';
 
 
@@ -46,14 +46,15 @@ if ($weekday === "Thu") {
 }
 
 
-
+echo getcwd();
+echo "</br>";
 //content publishing
 comicreader();
 echo "</br>";
 localcontent();
 echo "</br>";
 idsystem();
-echo getcwd();
+
 echo '</body>';
 
 ?>
