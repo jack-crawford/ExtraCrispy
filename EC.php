@@ -10,7 +10,8 @@ echo '<body id="body2">';
 
 date_default_timezone_set('America/Chicago');
 
-
+//When/If Mother asks, delete the // that makes the line below a comment, to show Othello without Drive
+//echo "<iframe src='https://drive.google.com/a/hollandhall.org/file/d/0B5XJOoJLCrT_dm9pUTNpT3BadDg/preview' width='640' height='480'></iframe>";
 
 //include crispyengine functions
 include 'crispyengine.php';
@@ -55,9 +56,5 @@ echo "</br>";
 
 
 echo '</body>';
-<<<<<<< HEAD
 
-=======
-$resultsofreaddir = readdir(getcwd());
->>>>>>> origin/master
 ?>

@@ -77,9 +77,6 @@ function localcontent(){
 date_default_timezone_set('America/Chicago');
 
 
-
-<<<<<<< HEAD
-=======
 function localcontent(){
     //enginelog: date formatting cannot have slashes for some reason when calling the img file
     //resolved by changing date formatting to dots, ie m.d.y.jpg and m.d.y.html
@@ -145,11 +142,8 @@ function localcontent(){
     //new bug - previous post glitches when the previous post wasn't the day before
     //solution: posts are numbered by post and not by date in nav system
     //$postid = //number of posts in folder?
-  
 
 
-
->>>>>>> origin/master
 }
 
 ?>
