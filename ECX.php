@@ -2,7 +2,7 @@
 //html code below here:
 echo '<link rel="stylesheet" href="ec.css">';
 echo '<div id="body1">';
-echo '<h1 style="text-align: center"> welcome to extracrispy </h1>';
+echo '<h1 style="text-align: center"> extracrispy X</h1>';
 echo "<title> extracrispy X</title>";
 echo "</br>";
 echo '</div>';
@@ -14,7 +14,7 @@ date_default_timezone_set('America/Chicago');
 echo "</br>";
 //include Xengine functions
 include 'Xengine.php';
-
+include 'othercomics.php';
 
 //content creation
 function comicreader() {
@@ -46,14 +46,14 @@ if ($weekday === "Thu") {
 }
 
 
-echo getcwd();
+
 echo "</br>";
 //content publishing
 comicreader();
 echo "</br>";
 localcontent();
 echo "</br>";
-idsystem();
+
 
 echo '</body>';
 
