@@ -42,9 +42,15 @@ function localcontent(){
       echo $infostring;
       echo "</br>";
 
-      $lastpost = file_get_contents("logpage.txt", 8);
-      file_put_contents("logpage.txt", "$date\n", FILE_APPEND);
+      $log = file_get_contents("logpage.txt");
+      $lastpost = substr($log, 0, 8);
 
+      if ($lastpost === $date) {
+        echo "</br>";
+      }
+      else {
+        file_put_contents("logpage.txt", "$date\n", FILE_APPEND);
+      }
 
       //these are the buttons
       $previousbutton = "<a href='$lastpost.html' class='button'>Previous</a>";
