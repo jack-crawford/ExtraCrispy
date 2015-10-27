@@ -43,10 +43,11 @@ function localcontent(){
       echo "</br>";
 
       $log = file_get_contents("logpage.txt");
-      $lastpost = substr($log, 0, 8);
-
+      $lastpost = substr($log, -9, 8);
+      //if the last post was today, don't log today's date again
       if ($lastpost == $date) {
         echo "</br>";
+        $lastpost == substr($log, -17, 8);
       }
       else {
         file_put_contents("logpage.txt", "$date\n", FILE_APPEND);
