@@ -45,7 +45,7 @@ function localcontent(){
       $log = file_get_contents("logpage.txt");
       $lastpost = substr($log, 0, 8);
 
-      if ($lastpost === $date) {
+      if ($lastpost == $date) {
         echo "</br>";
       }
       else {
@@ -66,6 +66,5 @@ function localcontent(){
       </body></html>");
       fclose("$date.html");
 }
-echo "Do you read?";
 
 ?>
