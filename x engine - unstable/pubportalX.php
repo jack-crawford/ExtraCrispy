@@ -1,8 +1,8 @@
 <?php
 echo '<link rel="stylesheet" href="ec.css">';
 echo '<div id="body1">';
-echo '<h1 style="text-align: center"> extracrispy X</h1>';
-echo "<title> extracrispy X</title>";
+echo '<h1 style="text-align: center"> publisher portal </h1>';
+echo "<title>pub portal</title>";
 echo "</br>";
 echo '</div>';
 echo '<body id="body2">';
