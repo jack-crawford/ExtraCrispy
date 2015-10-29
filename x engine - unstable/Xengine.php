@@ -46,15 +46,18 @@ function localcontent(){
       //to date before the current one. Problem is can't create next button.
       $log = file_get_contents("logpage.txt");
       $lastpost = substr($log, -9, 8);
-      $previousbutton = "<a href='$lastpost.html' class='button'>Previous</a>";
+
 
       if ($lastpost == $date) {
-        echo "</br>";
-        $lastpost = substr($log, -17, 8);
+        echo " if </br>";
+        $lastpost = substr($log, -18, 8);
+        $previousbutton = "<a href='$lastpost.html' class='button'>Previous</a>";
         echo $previousbutton;
       }
       else {
         file_put_contents("logpage.txt", "$date\n", FILE_APPEND);
+        $previousbutton = "<a href='$lastpost.html' class='button'>Previous</a>";
+        echo "else";
         echo $previousbutton;
       }
 
