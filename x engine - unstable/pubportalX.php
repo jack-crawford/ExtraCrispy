@@ -9,8 +9,11 @@ echo '<body id="body2">';
 
 include 'Xengine.php';
 
-echo "<input type='file' name='newcomic'>";
 
+echo "<form action='testpost.php' method='post'>
+Name: <input type='text' name='name'><br>
+E-mail: <input type='text' name='email'><br><input type='file' name='newcomic'><br>
+<input type='submit'>";
 
 
 
