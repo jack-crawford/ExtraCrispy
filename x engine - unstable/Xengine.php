@@ -49,7 +49,7 @@ function localcontent(){
 
 
       if ($lastpost == $date) {
-        echo " if </br>";
+        echo "</br>";
         $lastpost = substr($log, -18, 8);
         $previousbutton = "<a href='$lastpost.html' class='button'>Previous</a>";
         echo $previousbutton;
@@ -57,22 +57,11 @@ function localcontent(){
       else {
         file_put_contents("logpage.txt", "$date\n", FILE_APPEND);
         $previousbutton = "<a href='$lastpost.html' class='button'>Previous</a>";
-        echo "else";
         echo $previousbutton;
       }
 
-
-      //double x log system - using id numbers instead of dates
-      //$idlog = file_get_contents("idlog.txt");
-      //$previd = substr($idlog, -2, 1);
-      //$currentid = $previd + 1;
-      //file_put_contents("idlog.txt", "$currentid\n", FILE_APPEND);
-
-
       $homebutton = "<a href='ECX.php' class='button'>Home</a>";
-
-
-
+      echo "<a href='pubportalX.php' class='button'> publisher portal </a>";
       //$newpage and fwrite are the generation of archived pages
       $newpage = fopen("$date.html", w);
       fwrite($newpage, "<html><link rel='stylesheet' href='ec.css'><div id='body1'>
@@ -81,5 +70,14 @@ function localcontent(){
       </body></html>");
       fclose("$date.html");
 }
+
+function idsytem(){
+  //double x log system - using id numbers instead of dates
+  $idlog = file_get_contents("idlog.txt");
+  $previd = substr($idlog, -2, 1);
+  $currentid = $previd + 1;
+  file_put_contents("idlog.txt", "$currentid\n", FILE_APPEND);
+}
+
 
 ?>
