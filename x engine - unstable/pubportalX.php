@@ -11,8 +11,10 @@ include 'Xengine.php';
 
 
 echo "<form action='testpost.php' method='post'>
-Name: <input type='text' name='name'><br>
-E-mail: <input type='text' name='email'><br><input type='file' name='newcomic'><br>
+Date of Post: <input type='text' name='date'><br>
+Title: <input type='text' name='title'><br>
+: <input type='text' name='email'><br>
+<br>
 <input type='submit'>";
 
 
