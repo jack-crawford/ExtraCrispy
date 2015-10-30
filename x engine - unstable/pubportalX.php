@@ -1,5 +1,5 @@
 <?php
-echo '<link rel="stylesheet" href="ec.css">';
+echo '<link rel="stylesheet" href="S4W.css">';
 echo '<div id="body1">';
 echo '<h1 style="text-align: center"> publisher portal </h1>';
 echo "<title>pub portal</title>";

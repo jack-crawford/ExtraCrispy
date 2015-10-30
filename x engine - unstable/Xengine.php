@@ -1,6 +1,6 @@
 <?php
 
-//This is the experimental version of the crispyengine
+//This is the experimental version of the sheepforwheat engine
 //be cautious, fools dare not tread here
 
 date_default_timezone_set('America/Chicago');
@@ -111,8 +111,8 @@ function localcontent(){
       $lastnextbutton = "<a href='$date.html' class='button'> <img src='next.png' height='50' width='50'> </a>";
 
       $newpage = fopen("$lastpost.html", w);
-      fwrite($newpage, "<html><link rel='stylesheet' href='ec.css'><div id='body1'>
-      <h1 style='text-align: center'> archived content for $lastpost </h1> <title>extracrispy</title>
+      fwrite($newpage, "<html><link rel='stylesheet' href='S4W.css'><div id='body1'>
+      <h1 style='text-align: center'> archived content for $lastpost </h1> <title>sheepforwheat</title>
       </br></div><body id='body2'>$lastimage</br> $lastformattedtitlestring </br> $lastinfostring </br> $doublepreviousbutton $homebutton $lastnextbutton </br>
       </body></html>");
       fclose("$lastpost.html");

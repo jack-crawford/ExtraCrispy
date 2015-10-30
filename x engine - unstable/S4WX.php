@@ -1,10 +1,10 @@
 <?php
 //html code below here:
-echo '<link rel="stylesheet" href="ec.css">';
+echo '<link rel="stylesheet" href="S4W.css">';
 echo '<div id="body1">';
-echo '<h1 style="text-align: center"> extracrispy X</h1>';
+echo '<h1 style="text-align: center"> sheepforwheat X</h1>';
 echo '<h2 style="text-align: center"> a webcomic publishing system</h2>';
-echo "<title> extracrispy X</title>";
+echo "<title> sheepforwheat X</title>";
 echo "</br>";
 echo '</div>';
 echo '<body id="body2">';
