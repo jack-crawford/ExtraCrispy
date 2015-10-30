@@ -62,18 +62,12 @@ function localcontent(){
 
       $homebutton = "<a href='ECX.php' class='button'>Home</a>";
 
-
       $wholeinfo = file_get_contents("$date.txt");
       $nextpoststart = strpos($wholeinfo, "Post:") + 5;
       $nextpostend = strpos($wholeinfo, "END");
       $nextpostlength = $nextpostend - $nextpoststart;
       $nextpost = substr($wholeinfo, $nextpoststart, $nextpostlength);
       $nextbutton = "<a href='$nextpost.html' class='button'>Next</a>";
-
-
-
-
-
 
       //$newpage and fwrite are the generation of archived pages
       $newpage = fopen("$date.html", w);
