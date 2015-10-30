@@ -9,6 +9,7 @@ echo '<body id="body2">';
 
 include 'Xengine.php';
 
+echo "<h1> Please ensure that all dates are month.day.year </h1>";
 
 echo "<form action='testpost.php' method='post'>
 Date of Post: <br><input type='text' name='date'><br>

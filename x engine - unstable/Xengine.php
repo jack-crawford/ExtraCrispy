@@ -75,11 +75,14 @@ function createarchive(){
 }
 
 function nextbutton() {
+  $date = ''.date(m).".".date(d).".".date(y).'';
+  $wholeinfo = file_get_contents("$date.txt");
   $nextpoststart = strpos($wholeinfo, "Post:") + 5;
   $nextpostend = strpos($wholeinfo, "END");
   $nextpostlength = $nextpostend - $nextpoststart;
   $nextpost = substr($wholeinfo, $nextpoststart, $nextpostlength);
-  echo $nextpost;
+  echo "<a href='$nextpost.html' class='button'>Next</a>";
+
 }
 
 
