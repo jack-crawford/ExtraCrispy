@@ -15,7 +15,7 @@ include 'Xengine.php';
 
 localcontent();
 
-echo "<div id='otherlinks'>";
+echo "<div id='nav'>";
 echo "<h3>";
 echo "</br>";
 echo "<a href='publogin.php' class='button'><img src='portal.gif' height='50' width='50'></a>";
