@@ -7,7 +7,7 @@ date_default_timezone_set('America/Chicago');
 
 
 
-
+$date = ''.date(m).".".date(d).".".date(y).'';
 
 
 function localcontent(){
@@ -61,10 +61,20 @@ function localcontent(){
       }
 
       $homebutton = "<a href='ECX.php' class='button'>Home</a>";
-    }
 
-//createarchive is generating the webpages with navigators. note: nextbutton is still not working.
-function createarchive(){
+
+      $wholeinfo = file_get_contents("$date.txt");
+      $nextpoststart = strpos($wholeinfo, "Post:") + 5;
+      $nextpostend = strpos($wholeinfo, "END");
+      $nextpostlength = $nextpostend - $nextpoststart;
+      $nextpost = substr($wholeinfo, $nextpoststart, $nextpostlength);
+      $nextbutton = "<a href='$nextpost.html' class='button'>Next</a>";
+
+
+
+
+
+
       //$newpage and fwrite are the generation of archived pages
       $newpage = fopen("$date.html", w);
       fwrite($newpage, "<html><link rel='stylesheet' href='ec.css'><div id='body1'>
@@ -73,17 +83,5 @@ function createarchive(){
       </body></html>");
       fclose("$date.html");
 }
-
-function nextbutton() {
-  $date = ''.date(m).".".date(d).".".date(y).'';
-  $wholeinfo = file_get_contents("$date.txt");
-  $nextpoststart = strpos($wholeinfo, "Post:") + 5;
-  $nextpostend = strpos($wholeinfo, "END");
-  $nextpostlength = $nextpostend - $nextpoststart;
-  $nextpost = substr($wholeinfo, $nextpoststart, $nextpostlength);
-  echo "<a href='$nextpost.html' class='button'>Next</a>";
-
-}
-
 
 ?>

@@ -15,8 +15,8 @@ date_default_timezone_set('America/Chicago');
 include 'Xengine.php';
 
 localcontent();
-createarchive();
-nextbutton();
+//createarchive();
+//nextbutton();
 echo "</br>";
 echo "<a href='pubportalX.php' class='button'> publisher portal </a>";
 echo "</br>";
