@@ -3,6 +3,7 @@
 echo '<link rel="stylesheet" href="ec.css">';
 echo '<div id="body1">';
 echo '<h1 style="text-align: center"> extracrispy X</h1>';
+echo '<h2 style="text-align: center"> a webcomic publishing system</h2>';
 echo "<title> extracrispy X</title>";
 echo "</br>";
 echo '</div>';
@@ -14,10 +15,13 @@ include 'Xengine.php';
 
 localcontent();
 
+echo "<div id='otherlinks'>";
+echo "<h3>";
 echo "</br>";
-echo "<a href='pubportalX.php' class='button'> publisher portal </a>";
+echo "<a href='pubportalX.php' class='button'><img src='portal.gif' height='50' width='50'></a>";
 echo "</br>";
-echo "<a href='othercomics.php' class='button'> other comics </a>";
+echo "</h3>";
+echo "</div>";
 
 echo '</body>';
 

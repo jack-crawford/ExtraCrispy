@@ -16,3 +16,9 @@ h1 {
   width: 300;
   height: 200;
 }
+#otherlinks {
+  width: auto;
+  height: 100;
+  background-color: white;
+  text-align: center;
+}

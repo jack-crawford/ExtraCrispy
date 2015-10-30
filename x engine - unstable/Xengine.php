@@ -52,23 +52,23 @@ function localcontent(){
       if ($lastpost == $date) {
         echo "</br>";
         $lastpost = substr($log, -18, 8);
-        $previousbutton = "<a href='$lastpost.html' class='button'>Previous</a>";
+        $previousbutton = "<a href='$lastpost.html' class='button'><img src='previous.png' height='50' width='50'></a>";
         echo $previousbutton;
       }
       else {
         file_put_contents("logpage.txt", "$date\n", FILE_APPEND);
-        $previousbutton = "<a href='$lastpost.html' class='button'>Previous</a>";
+        $previousbutton = "<a href='$lastpost.html' class='button'><img src='previous.png' height='50' width='50'></a>";
         echo $previousbutton;
       }
 
-      $homebutton = "<a href='ECX.php' class='button'>Home</a>";
+      $homebutton = "<a href='ECX.php' class='button'><img src='home.svg' height='50' width='50'></a>";
 
       $wholeinfo = file_get_contents("$date.txt");
       $nextpoststart = strpos($wholeinfo, "Post:") + 5;
       $nextpostend = strpos($wholeinfo, "END");
       $nextpostlength = $nextpostend - $nextpoststart;
       $nextpost = substr($wholeinfo, $nextpoststart, $nextpostlength);
-      $nextbutton = "<a href='$nextpost.html' class='button'>Next</a>";
+      $nextbutton = "<a href='$nextpost.html' class='button'><img src='next.png' height='50' width='50'></a>";
 
 
 //        /\            | |   (_)            / _|         | |
@@ -100,15 +100,15 @@ function localcontent(){
         echo "</br>";
         $lastpost = substr($log, -18, 8);
         $doublelastpost = substr($log, -27, 8);
-        $doublepreviousbutton = "<a href='$doublelastpost.html' class='button'>Previous</a>";
+        $doublepreviousbutton = "<a href='$doublelastpost.html' class='button'><img src='previous.png' height='50' width='50'></a>";
 
       }
       else {
         $doublelastpost = substr($log, -27, 8);
-        $doublepreviousbutton = "<a href='$doublelastpost.html' class='button'>Previous</a>";
+        $doublepreviousbutton = "<a href='$doublelastpost.html' class='button'><img src='previous.png' height='50' width='50'></a>";
       }
       //write next button as todays post
-      $lastnextbutton = "<a href='$date.html' class='button'> Next </a>";
+      $lastnextbutton = "<a href='$date.html' class='button'> <img src='next.png' height='50' width='50'> </a>";
 
       $newpage = fopen("$lastpost.html", w);
       fwrite($newpage, "<html><link rel='stylesheet' href='ec.css'><div id='body1'>
