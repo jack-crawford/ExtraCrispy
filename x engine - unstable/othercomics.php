@@ -1,7 +1,7 @@
 <?php
 
 date_default_timezone_set('America/Chicago');
-echo '<link rel="stylesheet" href="ec.css">';
+echo '<link rel="stylesheet" href="S4W.css">';
 echo '<div id="body1">';
 echo '<h1 style="text-align: center"> comic crawler </h1>';
 echo "<title>other comics</title>";
