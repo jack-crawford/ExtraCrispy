@@ -10,6 +10,7 @@ h1 {
     color: #26A6D1;
     text-align: center;
     background-color: white;
+    width: auto;
 }
 #infobox {
   width: 300;

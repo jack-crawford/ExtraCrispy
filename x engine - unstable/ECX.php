@@ -10,13 +10,10 @@ echo '<body id="body2">';
 
 date_default_timezone_set('America/Chicago');
 
-
-//include Xengine functions
 include 'Xengine.php';
 
 localcontent();
-//createarchive();
-//nextbutton();
+
 echo "</br>";
 echo "<a href='pubportalX.php' class='button'> publisher portal </a>";
 echo "</br>";

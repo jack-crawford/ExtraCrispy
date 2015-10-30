@@ -16,7 +16,8 @@ function localcontent(){
     $date = ''.date(m).".".date(d).".".date(y).'';
     //$date is the date, duh
     //this shows the image on the homepage:
-    echo "<img src='$date.jpg'>";
+    $image = "<img src='$date.jpg' width='75%'>";
+    echo $image;
     //enginelog: $newpage did not have a definition for both $previousdate and $nextdate, so I moved it below the nav section
     //and it found those definitions, which seem to remain static on the archived pages
 
@@ -70,12 +71,40 @@ function localcontent(){
       $nextbutton = "<a href='$nextpost.html' class='button'>Next</a>";
 
       //$newpage and fwrite are the generation of archived pages
-      $newpage = fopen("$date.html", w);
+      //change archive from writing today's page to writing last post's page
+      $lastimage = "<img src='$lastpost.jpg' width='75%'>";
+      $lastwholeinfo = file_get_contents("$lastpost.txt");
+      //Title parser
+      $lastitlestart = strpos($lastwholeinfo, "Title:") + 6;
+      $lastitlefinish = strpos($lastwholeinfo, "Date") ;
+      $lastitlelength = $lastitlefinish - $lastitlestart;
+      $lastitlestring = substr($lastwholeinfo, $lastitlestringtitlestart, $lastitlelength);
+      $lastformattedtitlestring = "<h1> $lastitlestring </h1>";
+      //Info parser
+      $lastinfostart = strpos($lastwholeinfo, "Info:") + 5;
+      $lastinfofinish = strpos($lastwholeinfo, "Next");
+      $lastinfolength = $lastinfofinish - $lastinfostart;
+      $lastinfostring = substr($lastwholeinfo, $lastinfostart, $lastinfolength);
+
+      if ($lastpost == $date) {
+        echo "</br>";
+        $lastpost = substr($log, -18, 8);
+        $doublelastpost = substr($log, -27, 8);
+        $doublepreviousbutton = "<a href='$doublelastpost.html' class='button'>Previous</a>";
+
+      }
+      else {
+        $doublelastpost = substr($log, -27, 8);
+        $doublepreviousbutton = "<a href='$doublelastpost.html' class='button'>Previous</a>";
+      }
+      $lastnextbutton = "<a href='$date.html' class='button'> Next </a>";
+
+      $newpage = fopen("$lastpost.html", w);
       fwrite($newpage, "<html><link rel='stylesheet' href='ec.css'><div id='body1'>
-      <h1 style='text-align: center'> archived content for $date </h1> <title>extracrispy</title>
-      </br></div><body id='body2'><img src='$date.jpg'></br> $formattedtitlestring </br> $infostring </br> $previousbutton $homebutton $nextbutton </br>
+      <h1 style='text-align: center'> archived content for $lastpost </h1> <title>extracrispy</title>
+      </br></div><body id='body2'>$lastimage</br> $lastformattedtitlestring </br> $lastinfostring </br> $doublepreviousbutton $homebutton $lastnextbutton </br>
       </body></html>");
-      fclose("$date.html");
+      fclose("$lastpost.html");
 }
 
 ?>
