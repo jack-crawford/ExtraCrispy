@@ -36,7 +36,7 @@ function localcontent(){
       echo "</br>";
       //Info parser
       $infostart = strpos($wholeinfo, "Info:") + 5;
-      $infofinish = strpos($wholeinfo, "END") - 3;
+      $infofinish = strpos($wholeinfo, "END");
       $infolength = $infofinish - $infostart;
       $infostring = substr($wholeinfo, $infostart, $infolength);
       echo $infostring;
@@ -63,7 +63,7 @@ function localcontent(){
       $homebutton = "<a href='ECX.php' class='button'>Home</a>";
     }
 
-//createarchive is generating the webpages with navigators. note: nextbutton is still not working.    
+//createarchive is generating the webpages with navigators. note: nextbutton is still not working.
 function createarchive(){
       //$newpage and fwrite are the generation of archived pages
       $newpage = fopen("$date.html", w);
