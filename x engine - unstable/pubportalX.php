@@ -11,7 +11,6 @@ include 'Xengine.php';
 
 
 echo "<form action='testpost.php' method='post'>
-
 Date of Post: <br><input type='text' name='date'><br>
 Title: <br><input type='text' name='title'><br>
 Info: <br><input type='text' name='info' id='infobox'><br>
