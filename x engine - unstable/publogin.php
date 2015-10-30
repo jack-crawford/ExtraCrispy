@@ -11,11 +11,8 @@ session_start();
 
 
 if ($_GET['login']) {
-     // Only load the code below if the GET
-     // variable 'login' is set. You will
-     // set this when you submit the form
-
-     if ($_POST['username'] == 'test'
+     
+     if ($_POST['username'] == 'user'
          && $_POST['password'] == 'password') {
          // Load code below if both username
          // and password submitted are correct
@@ -23,7 +20,7 @@ if ($_GET['login']) {
          $_SESSION['loggedin'] = 1;
           // Set session variable
 
-         header("Location: pubportalX.php");
+         echo "<a href='pubportalX.php'> Redirect here </a>";
          exit;
          // Redirect to a protected page
 
