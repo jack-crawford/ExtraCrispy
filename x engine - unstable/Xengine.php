@@ -70,6 +70,14 @@ function localcontent(){
       $nextpost = substr($wholeinfo, $nextpoststart, $nextpostlength);
       $nextbutton = "<a href='$nextpost.html' class='button'>Next</a>";
 
+
+//        /\            | |   (_)            / _|         | |
+//       /  \   _ __ ___| |__  ___   _____  | |_ ___  __ _| |_ _   _ _ __ ___
+//      / /\ \ | '__/ __| '_ \| \ \ / / _ \ |  _/ _ \/ _` | __| | | | '__/ _ \
+//     / ____ \| | | (__| | | | |\ V /  __/ | ||  __/ (_| | |_| |_| | | |  __/
+//    /_/    \_\_|  \___|_| |_|_| \_/ \___| |_| \___|\__,_|\__|\__,_|_|  \___|
+
+
       //$newpage and fwrite are the generation of archived pages
       //change archive from writing today's page to writing last post's page
       $lastimage = "<img src='$lastpost.jpg' width='75%'>";
@@ -78,13 +86,15 @@ function localcontent(){
       $lastitlestart = strpos($lastwholeinfo, "Title:") + 6;
       $lastitlefinish = strpos($lastwholeinfo, "Date") ;
       $lastitlelength = $lastitlefinish - $lastitlestart;
-      $lastitlestring = substr($lastwholeinfo, $lastitlestringtitlestart, $lastitlelength);
+      $lastitlestring = substr($lastwholeinfo, $lastitlestart, $lastitlelength);
       $lastformattedtitlestring = "<h1> $lastitlestring </h1>";
       //Info parser
       $lastinfostart = strpos($lastwholeinfo, "Info:") + 5;
       $lastinfofinish = strpos($lastwholeinfo, "Next");
       $lastinfolength = $lastinfofinish - $lastinfostart;
       $lastinfostring = substr($lastwholeinfo, $lastinfostart, $lastinfolength);
+
+
       //write previous button as two posts ago
       if ($lastpost == $date) {
         echo "</br>";
