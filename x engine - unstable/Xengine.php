@@ -11,21 +11,21 @@ $date = ''.date(m).".".date(d).".".date(y).'';
 
 
 function localcontent(){
-    //enginelog: date formatting cannot have slashes for some reason when calling the img file
-    //resolved by changing date formatting to dots, ie m.d.y.jpg and m.d.y.html
-    $date = ''.date(m).".".date(d).".".date(y).'';
-    //$date is the date, duh
-    //this shows the image on the homepage:
-    $image = "<img src='$date.jpg' width='75%'>";
-    echo $image;
-    //enginelog: $newpage did not have a definition for both $previousdate and $nextdate, so I moved it below the nav section
-    //and it found those definitions, which seem to remain static on the archived pages
+      //enginelog: date formatting cannot have slashes for some reason when calling the img file
+      //resolved by changing date formatting to dots, ie m.d.y.jpg and m.d.y.html
+      $date = ''.date(m).".".date(d).".".date(y).'';
+      //$date is the date, duh
+      //this shows the image on the homepage:
+      $image = "<img src='$date.jpg' width='75%'>";
+      echo $image;
+      //enginelog: $newpage did not have a definition for both $previousdate and $nextdate, so I moved it below the nav section
+      //and it found those definitions, which seem to remain static on the archived pages
 
-    echo "</br>";
-    //This section takes a text file that accompanies the image file and parses it for the title and info (ie a blog post or description of the image)
-    //interesting note, since this text is being echoed into a php file it can contain html formatting for font size and color and such
-    //for some reason, if there is no text file, it doesn't show anything on the page that would imply that there should be one
-    //if there is no image, however, the little missing image icon pops up
+      echo "</br>";
+      //This section takes a text file that accompanies the image file and parses it for the title and info (ie a blog post or description of the image)
+      //interesting note, since this text is being echoed into a php file it can contain html formatting for font size and color and such
+      //for some reason, if there is no text file, it doesn't show anything on the page that would imply that there should be one
+      //if there is no image, however, the little missing image icon pops up
       $wholeinfo = file_get_contents("$date.txt");
       //Title parser
       $titlestart = strpos($wholeinfo, "Title:") + 6;
@@ -85,7 +85,7 @@ function localcontent(){
       $lastinfofinish = strpos($lastwholeinfo, "Next");
       $lastinfolength = $lastinfofinish - $lastinfostart;
       $lastinfostring = substr($lastwholeinfo, $lastinfostart, $lastinfolength);
-
+      //write previous button as two posts ago
       if ($lastpost == $date) {
         echo "</br>";
         $lastpost = substr($log, -18, 8);
@@ -97,6 +97,7 @@ function localcontent(){
         $doublelastpost = substr($log, -27, 8);
         $doublepreviousbutton = "<a href='$doublelastpost.html' class='button'>Previous</a>";
       }
+      //write next button as todays post
       $lastnextbutton = "<a href='$date.html' class='button'> Next </a>";
 
       $newpage = fopen("$lastpost.html", w);
