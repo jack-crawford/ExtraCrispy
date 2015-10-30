@@ -11,7 +11,7 @@ include 'Xengine.php';
 
 
 echo "<form action='testpost.php' method='post'>
-Path to Post: <br><input type='text' name='pathtoimg'><br>
+
 Date of Post: <br><input type='text' name='date'><br>
 Title: <br><input type='text' name='title'><br>
 Info: <br><input type='text' name='info' id='infobox'><br>
@@ -20,7 +20,7 @@ Info: <br><input type='text' name='info' id='infobox'><br>
 
 
 
-
+//Path to Post: <br><input type='text' name='pathtoimg'><br>
 
 
 
