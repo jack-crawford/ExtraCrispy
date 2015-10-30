@@ -11,49 +11,15 @@ echo '<body id="body2">';
 date_default_timezone_set('America/Chicago');
 
 
-echo "</br>";
 //include Xengine functions
 include 'Xengine.php';
-include 'othercomics.php';
 
-//content creation
-function comicreader() {
-    $weekday = date('D');
-if ($weekday === "Mon") {
-    echo "it's monday, time for xkcd!";
-    xkcd();
-}
-
-if ($weekday === "Wed") {
-    echo "it's wednesday, time for xkcd!";
-    xkcd();
-}
-
-if ($weekday === "Fri") {
-    echo "it's friday, time for xkcd!";
-    xkcd();
-}
-
-if ($weekday === "Tue") {
-    echo "it's tuesday, time for NIH!";
-    NIH();
-}
-
-if ($weekday === "Thu") {
-    echo "it's thursday, time for NIH!";
-    NIH();
-}
-}
-
-
-
-echo "</br>";
-//content publishing
-comicreader();
-echo "</br>";
 localcontent();
+createarchive();
 echo "</br>";
-//idsystem();
+echo "<a href='pubportalX.php' class='button'> publisher portal </a>";
+echo "</br>";
+echo "<a href='othercomics.php' class='button'> other comics </a>";
 
 echo '</body>';
 

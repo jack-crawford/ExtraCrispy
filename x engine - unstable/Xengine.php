@@ -61,7 +61,10 @@ function localcontent(){
       }
 
       $homebutton = "<a href='ECX.php' class='button'>Home</a>";
-      echo "<a href='pubportalX.php' class='button'> publisher portal </a>";
+    }
+
+//createarchive is generating the webpages with navigators. note: nextbutton is still not working.    
+function createarchive(){
       //$newpage and fwrite are the generation of archived pages
       $newpage = fopen("$date.html", w);
       fwrite($newpage, "<html><link rel='stylesheet' href='ec.css'><div id='body1'>
