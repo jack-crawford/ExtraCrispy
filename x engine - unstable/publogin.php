@@ -11,8 +11,8 @@ session_start();
 
 
 if ($_GET['login']) {
-     
-     if ($_POST['username'] == 'user'
+
+     if ($_POST['username'] == 'creator'
          && $_POST['password'] == 'password') {
          // Load code below if both username
          // and password submitted are correct
@@ -28,9 +28,9 @@ if ($_GET['login']) {
      // Otherwise, echo the error message
 
 }
-echo "Log in:
+echo "
 <form action='?login=1' method='post'>
-Username: <input type='text' name='username' />
-Password: <input type='password' name='password' />
-<input type='submit' />:";
+<h3>Username:</h3> <input type='text' name='username' />
+<h3>Password:</h3> <input type='password' name='password' /> </br> </br>
+<input type='submit' />";
 ?>
