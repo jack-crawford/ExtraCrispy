@@ -53,7 +53,7 @@ comicreader();
 echo "</br>";
 localcontent();
 echo "</br>";
-
+//idsystem();
 
 echo '</body>';
 

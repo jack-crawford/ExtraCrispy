@@ -42,23 +42,26 @@ function localcontent(){
       echo $infostring;
       echo "</br>";
 
+      //x log system: writes date to log, and on archived pages creates previous button with link
+      //to date before the current one. Problem is can't create next button.
       $log = file_get_contents("logpage.txt");
       $lastpost = substr($log, -9, 8);
-      //if the last post was today, don't log today's date again
+
+
       if ($lastpost == $date) {
         echo "</br>";
-        $lastpost == substr($log, -17, 8);
+        $lastpost = substr($log, -18, 8);
+        $previousbutton = "<a href='$lastpost.html' class='button'>Previous</a>";
+        echo $previousbutton;
       }
       else {
         file_put_contents("logpage.txt", "$date\n", FILE_APPEND);
+        $previousbutton = "<a href='$lastpost.html' class='button'>Previous</a>";
+        echo $previousbutton;
       }
 
-      //these are the buttons
-      $previousbutton = "<a href='$lastpost.html' class='button'>Previous</a>";
-      $homebutton = "<a href='EC.php' class='button'>Home</a>";
-      //on the homepage only the previousbutton needs to be shown
-      echo $previousbutton;
-
+      $homebutton = "<a href='ECX.php' class='button'>Home</a>";
+      echo "<a href='pubportalX.php' class='button'> publisher portal </a>";
       //$newpage and fwrite are the generation of archived pages
       $newpage = fopen("$date.html", w);
       fwrite($newpage, "<html><link rel='stylesheet' href='ec.css'><div id='body1'>
@@ -67,5 +70,14 @@ function localcontent(){
       </body></html>");
       fclose("$date.html");
 }
+
+function idsytem(){
+  //double x log system - using id numbers instead of dates
+  $idlog = file_get_contents("idlog.txt");
+  $previd = substr($idlog, -2, 1);
+  $currentid = $previd + 1;
+  file_put_contents("idlog.txt", "$currentid\n", FILE_APPEND);
+}
+
 
 ?>
