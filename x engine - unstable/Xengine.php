@@ -36,7 +36,7 @@ function localcontent(){
       echo "</br>";
       //Info parser
       $infostart = strpos($wholeinfo, "Info:") + 5;
-      $infofinish = strpos($wholeinfo, "END");
+      $infofinish = strpos($wholeinfo, "Next");
       $infolength = $infofinish - $infostart;
       $infostring = substr($wholeinfo, $infostart, $infolength);
       echo $infostring;
@@ -74,7 +74,13 @@ function createarchive(){
       fclose("$date.html");
 }
 
-
+function nextbutton() {
+  $nextpoststart = strpos($wholeinfo, "Post:") + 5;
+  $nextpostend = strpos($wholeinfo, "END");
+  $nextpostlength = $nextpostend - $nextpoststart;
+  $nextpost = substr($wholeinfo, $nextpoststart, $nextpostlength);
+  echo $nextpost;
+}
 
 
 ?>
