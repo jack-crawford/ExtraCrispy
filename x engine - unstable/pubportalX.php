@@ -13,11 +13,7 @@ include 'Xengine.php';
 echo "<form action='testpost.php' method='post'>
 Date of Post: <input type='text' name='date'><br>
 Title: <input type='text' name='title'><br>
-<<<<<<< HEAD
 Info: <input type='text' name='info'><br>
-=======
-: <input type='text' name='email'><br>
->>>>>>> origin/master
 <br>
 <input type='submit'>";
 

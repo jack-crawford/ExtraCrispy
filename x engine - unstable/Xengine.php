@@ -71,13 +71,7 @@ function localcontent(){
       fclose("$date.html");
 }
 
-function idsytem(){
-  //double x log system - using id numbers instead of dates
-  $idlog = file_get_contents("idlog.txt");
-  $previd = substr($idlog, -2, 1);
-  $currentid = $previd + 1;
-  file_put_contents("idlog.txt", "$currentid\n", FILE_APPEND);
-}
+
 
 
 ?>
