@@ -12,6 +12,10 @@ h1 {
     background-color: white;
     width: auto;
 }
+#nav {
+  background-color: #0C5F7A;
+  
+}
 #infobox {
   width: 300;
   height: 200;
