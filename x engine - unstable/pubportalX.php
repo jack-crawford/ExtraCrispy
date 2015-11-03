@@ -13,6 +13,7 @@ echo "<h1> Please ensure that all dates are month.day.year </h1>";
 //Image: <input type='file' name='comic'><br>
 
 echo "<form action='testpost.php' method='post'>
+Name of Image File: <br><input type='text' name='path'><br>
 Date of Post: <br><input type='text' name='date'><br>
 Title: <br><input type='text' name='title'><br>
 Info: <br><input type='text' name='info' id='infobox'><br>

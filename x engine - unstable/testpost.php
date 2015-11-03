@@ -12,7 +12,20 @@ $date =  $_POST["date"];
 $title = $_POST["title"];
 $info = $_POST["info"];
 $nextpost = $_POST["nextpost"];
-
+$pathtoimage = $_POST['path'];
+$files = getcwd();
+rename($pathtoimage, "$files/$date.jpg");
+echo "Here's the Content of Your Post:"
+echo "</br>";
+echo "<img src='$date.jpg'>";
+echo "</br>";
+echo "Date: $date";
+echo "</br>";
+echo "Title: $title";
+echo "</br>";
+echo "Info: $info";
+echo "</br>";
+echo "Next Post: $nextpost";
 
 
 $openpost = fopen("$date.txt", w);

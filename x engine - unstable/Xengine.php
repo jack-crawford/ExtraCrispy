@@ -16,7 +16,7 @@ function localcontent(){
       $date = ''.date(m).".".date(d).".".date(y).'';
       //$date is the date, duh
       //this shows the image on the homepage:
-      $image = "<img src='$date.jpg' width='75%'>";
+      $image = "<img src='$date.jpg' >";
       echo $image;
       //enginelog: $newpage did not have a definition for both $previousdate and $nextdate, so I moved it below the nav section
       //and it found those definitions, which seem to remain static on the archived pages
