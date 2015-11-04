@@ -7,7 +7,6 @@ echo "</br>";
 echo '</div>';
 echo '<body id="body2">';
 
-
 $date =  $_POST["date"];
 $title = $_POST["title"];
 $info = $_POST["info"];
@@ -19,16 +18,12 @@ echo "Here's the Content of Your Post:"
 echo "</br>";
 echo "<img src='$date.jpg'>";
 
-
-
 $openpost = fopen("$date.txt", w);
 $postcontent = "Title: $title\nDate:$date\nInfo:$info\nNext Post:$nextpost\nEND";
 fwrite($openpost, $postcontent);
 fclose('$date.txt');
 
-
 echo 'thank you, your post has been recorded and will be published on the date you provided';
-
 
 echo "</body>";
 
