@@ -2,7 +2,7 @@
 echo '<link rel="stylesheet" href="S4W.css">';
 echo '<div id="body1">';
 echo '<h1 style="text-align: center"> publisher portal </h1>';
-echo "<title>pub portal</title>";
+echo "<title>publisher portal</title>";
 echo "</br>";
 echo '</div>';
 echo '<body id="body2">';
@@ -10,7 +10,6 @@ echo '<body id="body2">';
 include 'Xengine.php';
 
 echo "<h1> Please ensure that all dates are month.day.year </h1>";
-//Image: <input type='file' name='comic'><br>
 
 echo "<form action='testpost.php' method='post'>
 Name of Image File: <br><input type='text' name='path'><br>
@@ -26,7 +25,7 @@ echo "</br>";
 
 
 
-
+//
 
 
 

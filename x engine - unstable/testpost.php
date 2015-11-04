@@ -2,7 +2,7 @@
 echo '<link rel="stylesheet" href="S4W.css">';
 echo '<div id="body1">';
 echo '<h1 style="text-align: center"> publisher portal </h1>';
-echo "<title>pub portal</title>";
+echo "<title>publisher portal</title>";
 echo "</br>";
 echo '</div>';
 echo '<body id="body2">';
@@ -18,14 +18,7 @@ rename($pathtoimage, "$files/$date.jpg");
 echo "Here's the Content of Your Post:"
 echo "</br>";
 echo "<img src='$date.jpg'>";
-echo "</br>";
-echo "Date: $date";
-echo "</br>";
-echo "Title: $title";
-echo "</br>";
-echo "Info: $info";
-echo "</br>";
-echo "Next Post: $nextpost";
+
 
 
 $openpost = fopen("$date.txt", w);
