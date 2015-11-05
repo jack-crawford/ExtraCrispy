@@ -14,14 +14,17 @@ $nextpost = $_POST["nextpost"];
 $pathtoimage = $_POST['path'];
 $files = getcwd();
 rename($pathtoimage, "$files/$date.jpg");
-echo "Here's the Content of Your Post:"
+echo "Here's the Content of Your Post:";
 echo "</br>";
 echo "<img src='$date.jpg'>";
-
+echo $title;
+echo "</br>";
+echo $info;
+echo "</br>";
 $openpost = fopen("$date.txt", w);
 $postcontent = "Title: $title\nDate:$date\nInfo:$info\nNext Post:$nextpost\nEND";
 fwrite($openpost, $postcontent);
-fclose('$date.txt');
+fclose("$date.txt");
 
 echo 'thank you, your post has been recorded and will be published on the date you provided';
 

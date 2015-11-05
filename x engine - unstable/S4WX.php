@@ -18,7 +18,7 @@ localcontent();
 echo "<div id='nav'>";
 echo "<h3>";
 echo "</br>";
-echo "<a href='publogin.php' class='button'><img src='portal.gif' height='50' width='50'></a>";
+echo "<a href='pubportalX.php' class='button'><img src='portal.gif' height='50' width='50'></a>";
 echo "</br>";
 echo "</h3>";
 echo "</div>";

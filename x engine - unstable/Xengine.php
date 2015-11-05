@@ -61,7 +61,7 @@ function localcontent(){
         echo $previousbutton;
       }
 
-      $homebutton = "<a href='ECX.php' class='button'><img src='home.svg' height='50' width='50'></a>";
+      $homebutton = "<a href='S4WX.php' class='button'><img src='home.svg' height='50' width='50'></a>";
 
       $wholeinfo = file_get_contents("$date.txt");
       $nextpoststart = strpos($wholeinfo, "Post:") + 5;
