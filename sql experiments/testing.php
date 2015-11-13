@@ -21,6 +21,34 @@ for ($j = 0; $j < $rows ; ++$j)
   echo 'Title: ' . $row[1] . "</br>";
   echo 'Year: ' . $row[2] . "</br>";
 }
+function get_post($var){
+  return mysql_real_escape_string($_POST[$var]);
+}
+if (isset($_POST['author']) &&
+    isset($_POST['title']) &&
+    isset($_POST['year']) &&
+    )
+    {
+      $author = get_post('author');
+      $title = get_post('title');
+      $year = get_post('year');
+      $query = "INSERT INTO classics VALUES" . "('$author', '$title', '$year')";
+
+      if (!mysql_query($query, $db_server))
+        echo "INSERT failed: $query '</br>'" . mysql_error();
+    }
+echo <<<_END
+<form action="sqltest.php" method="post"><pre>
+Author <input type="text" name="author" />
+Title <input type="text" name="title" />
+Year <input type="text" name="year" />
+<input type="submit" value="ADD RECORD" />
+</pre> </form>
+_END;
+
+$query = "SELECT * FROM classics";
+
+$result =
 
 
 
