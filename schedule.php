@@ -6,6 +6,9 @@ include 'cheatsheat.php';
 $x = 1;
 $cyc = 1;
 
+
+echo "Add days off: <form action='schedule.php' method='post'><input type='text' name='dayoff' />  <input type='submit' /> </form> ";
+array_push($_POST['dayoff']);
 $offdays = array('11.25.15','11.26.15','11.27.15');
 
 
