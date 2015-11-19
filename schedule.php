@@ -13,13 +13,22 @@ $x = 1;
 $cyc = 1;
 echo $letter;
 
+//theoretically add days to offdays array
 echo "Add days off: <form action='schedule.php' method='post'><input type='text' name='dayoff' />  <input type='submit' /> </form> ";
-array_push($_POST['dayoff']);
+$newdayoff = $_POST['dayoff'];
+$offdaytable = mysql_query('SELECT numdate FROM offdays');
+$adddaysoff = "INSERT INTO offdays(numdate) VALUES ('$newdayoff')";
+$dayoffresult = mysql_query($adddaysoff);
+if(!$dayoffresult) die ('database access failed: . ' . mysql_error());
+if(!$offdaytable) die ('database access failed: . ' . mysql_error());
+
+
 $offdays = array('11.25.15','11.26.15','11.27.15');
-$idletter = array(1 => "A", 2 => "B", 3 => "C", 4 => "D", 5 => "E", 6 => "F");
 
+
+//starting letter
 $letter = "A";
-
+//extrapolate to 30 days
 while ($x <= 30):
   //if it's a weekend, skip
   if (date('D' , strtotime("+ $x day")) === "Sun" or date('D' , strtotime("+ $x day")) === "Sat"){
