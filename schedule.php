@@ -17,7 +17,7 @@ echo $letter;
 echo "Add days off: <form action='schedule.php' method='post'><input type='text' name='dayoff' />  <input type='submit' /> </form> ";
 $newdayoff = $_POST['dayoff'];
 $offdaytable = mysql_query('SELECT * FROM offdays');
-$adddaysoff = "INSERT INTO offdays(numdate) VALUES ('$newdayoff')";
+$adddaysoff = "INSERT INTO offdays(numdate) VALUES ('$newdayoff') ON DUPLICATE KEY UPDATE numdate=numdate";
 $dayoffresult = mysql_query($adddaysoff);
 if(!$dayoffresult) die ('database access failed: . ' . mysql_error());
 if(!$offdaytable) die ('database access failed: . ' . mysql_error());
@@ -28,14 +28,12 @@ $offdayssql = array();
 
 while($row = mysql_fetch_array($offdaytable)){
     $offdayssql[] = $row['numdate'];
-//Edited - added semicolon at the End of line.1st and 4th(prev) line
-
 }
 
 //starting letter
 $letter = "A";
 //extrapolate to 30 days
-while ($x <= 30):
+while ($x <= 365):
   //if it's a weekend, skip
   if (date('D' , strtotime("+ $x day")) === "Sun" or date('D' , strtotime("+ $x day")) === "Sat"){
     $x = $x + 1;
@@ -83,9 +81,12 @@ while ($x <= 30):
         global $letter;
         $cyc = 1;
       }
-      $query = "INSERT INTO days(numdate, cycleday) VALUES ('$formattedextrapolateddate', '$letter')";
-      $result = mysql_query($query);
+      $dayquery = "INSERT INTO days(numdate) VALUES ('$formattedextrapolateddate') ON DUPLICATE KEY UPDATE numdate=numdate";
+      $result = mysql_query($dayquery);
       if(!$result) die ('database access failed: . ' . mysql_error());
+      $cycquery = "INSERT INTO days(cycleday) VALUES ('$letter') ON DUPLICATE KEY UPDATE cycleday=cycleday";
+      $cycresult = mysql_query($cycquery);
+      if(!$cycresult) die ('database access failed: . ' . mysql_error());
 echo $b;
 $x = $x + 1;
 
